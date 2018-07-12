@@ -44,6 +44,7 @@ private:
 			VertexBoneData bone_;
 		};
 
+		DirectX::XMMATRIX matrix_;
 		std::vector<Vertex> vertices_;
 		std::vector<unsigned int> indices_;
 		std::string name_;

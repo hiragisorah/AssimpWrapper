@@ -193,6 +193,7 @@ bool AssimpModel::ProcessNode(aiNode * node)
 		this->mesh_list_.emplace_back(PrivateMesh());
 		auto & mesh = this->mesh_list_.back();
 		auto & assimp_mesh = scene->mMeshes[node->mMeshes[n]];
+		mesh.matrix_ = aiMatrix4x42XMMATRIX(node->mTransformation);
 		this->ProcessMesh(mesh, assimp_mesh);
 	}
 
