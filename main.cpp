@@ -1,9 +1,9 @@
 #include <iostream>
-#include "assimp-converter.h"
+#include "assimp-model.h"
 
 int main(void)
 {
-	AssimpModel test("kaoru.fbx");
+	AssimpModel test("xbot.fbx");
 
 	rewind(stdin);
 	getchar();
