@@ -27,7 +27,7 @@ public:
 	{
 		std::string texture_;
 		DirectX::XMFLOAT4 diffuse_;
-		DirectX::XMFLOAT4 specular_;	
+		DirectX::XMFLOAT4 specular_;
 		DirectX::XMFLOAT4 ambient_;
 		DirectX::XMFLOAT4 emissive_;
 		DirectX::XMFLOAT4 transparent_;
@@ -81,10 +81,7 @@ private:
 
 private:
 	aiNode * const FindNodeRecursiveByName(aiNode * const node, const std::string name) const;
-	aiNodeAnim * const FindNodeAnim(const unsigned int & anim_num, const std::string node_name) const;
-
-public:
-	const int GetBoneIdByName(const std::string name) const;
+	aiNodeAnim * const FindNodeAnim(const unsigned int & anim_num, const std::string bone_name) const;
 
 public:
 	const unsigned int get_mesh_cnt(void) const;
@@ -116,6 +113,13 @@ public:
 	const DirectX::XMFLOAT4 & get_emissive(const int & material_id) const;
 	const DirectX::XMFLOAT4 & get_transparent(const int & material_id) const;
 	const DirectX::XMFLOAT4 & get_reflective(const int & material_id) const;
+	const unsigned int & get_anim_cnt(void) const;
+	const unsigned int & get_anim_position_key_cnt(const unsigned int & anim_num, const std::string & bone_name) const;
+	const unsigned int & get_anim_rotation_key_cnt(const unsigned int & anim_num, const std::string & bone_name) const;
+	const unsigned int & get_anim_scale_key_cnt(const unsigned int & anim_num, const std::string & bone_name) const;
+	const DirectX::XMFLOAT3 get_animation_position(const unsigned int & anim_num, const unsigned int & anim_time, const std::string & bone_name) const;
+	const DirectX::XMMATRIX get_animation_rotation(const unsigned int & anim_num, const unsigned int & anim_time, const std::string & bone_name) const;
+	const DirectX::XMFLOAT3 get_animation_scale(const unsigned int & anim_num, const unsigned int & anim_time, const std::string & bone_name) const;
 
 private:
 	bool ProcessNode(aiNode * node);
